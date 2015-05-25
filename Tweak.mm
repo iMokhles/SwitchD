@@ -67,7 +67,9 @@ static NSArray *appShotsItems;
 }
 %new
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view {
-    id uiController = [%c(SBUIController) sharedInstanceIfExists];
+    
+    // i don't have experience with AppSwitcher i was trying so i'm not sure if it's write or not ( feel free to send pull request to fix any issue )
+    SBUIController *uiController = [%c(SBUIController) sharedInstanceIfExists];
     SBAppSwitcherController *controller = MSHookIvar<SBAppSwitcherController *>(uiController, "_switcherController");
     
     SBAppSwitcherPageViewController *pageViewController = MSHookIvar<id>(controller, "_pageController");
